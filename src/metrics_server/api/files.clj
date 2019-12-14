@@ -40,11 +40,13 @@
          ) files)
   )
 
-;; 2.4
-(defn task24 [files]
-  (/ (reduce + (map (fn [file] (get file :size)) (filter (fn [a] (not (get a :directory))) files)))
-     (count (filter (fn [a] (not (get a :directory))) files)))
-  )
+;; 3
+(defn third_task [files] (/ 
+(reduce + (map (fn [file] (get file :size)) 
+(filter (fn [a] (not (get a :directory))) files)))
+(count (filter (fn [a] (not (get a :directory))) files))
+))
+
 ;; output
 (defn -main [& args]
   (println (task21 (get-files)))
