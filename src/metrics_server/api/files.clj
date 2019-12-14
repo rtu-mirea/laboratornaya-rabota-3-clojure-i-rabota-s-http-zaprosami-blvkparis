@@ -20,15 +20,15 @@
   (:data (get-files-with-http-info)))
 
 ;; 2.1
-(defn task21 [files]
+(defn task_21 [files]
   (filter (fn [a] (not (get a :directory)))files))
 
 ;; 2.2
-(defn task22 [files]
+(defn task_22 [files]
   (filter (fn [a] (not (get a :executable)))files))
 
 ;; 2.3
-(defn task23 [files]
+(defn task_23 [files]
   (map (fn [file]
          {
           :name (clojure.string/replace (get file :name) #".conf" ".cfg")
@@ -41,17 +41,17 @@
   )
 
 ;; 3
-(defn third_task [files] (/ 
-(reduce + (map (fn [file] (get file :size)) 
-(filter (fn [a] (not (get a :directory))) files)))
-(count (filter (fn [a] (not (get a :directory))) files))
-))
+(defn task_3 [files] (/
+                           (reduce + (map (fn [file] (get file :size))
+                                          (filter (fn [a] (not (get a :directory))) files)))
+                           (count (filter (fn [a] (not (get a :directory))) files))
+                           ))
 
-;; output
+;; Вывод
 (defn -main [& args]
-  (println (task21 (get-files)))
-  (println (task22 (get-files)))
-  (println (task23 (get-files)))
-  (println (task24 (get-files)))
+  (println (task_21 (get-files)))
+  (println (task_22 (get-files)))
+  (println (task_23 (get-files)))
+  (println (task_3 (get-files)))
   )
 
